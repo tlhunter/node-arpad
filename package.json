@@ -1,6 +1,6 @@
 {
   "name": "arpad",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ELO Rating System",
   "main": "index.js",
   "scripts": {
@@ -14,5 +14,16 @@
     "pvp"
   ],
   "author": "Thomas Hunter II",
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tlhunter/node-arpad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tlhunter/node-arpad/issues"
+  },
+  "homepage": "https://github.com/tlhunter/node-arpad"
 }
