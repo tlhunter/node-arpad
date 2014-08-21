@@ -1,0 +1,18 @@
+{
+  "name": "arpad",
+  "version": "0.0.1",
+  "description": "ELO Rating System",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "elo",
+    "rating",
+    "matchmaking",
+    "chess",
+    "pvp"
+  ],
+  "author": "Thomas Hunter II",
+  "license": "MIT"
+}
