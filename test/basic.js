@@ -134,6 +134,19 @@ describe('Basic Usage', function() {
     assert.equal(bob_new_rating, 1320);
   });
 
+  it("should get same results when using convenience methods", function() {
+    var elo = new Elo(32);
+
+    var alice_rating = 1275;
+    var bob_rating = 1362;
+
+    var expected_alice_score = elo.expectedScore(alice_rating, bob_rating);
+    var alice_new_rating = elo.newRating(expected_alice_score, 1, alice_rating);
+    var alice_new_rating_convenient = elo.newRatingIfWon(alice_rating, bob_rating);
+
+    assert.equal(alice_new_rating, alice_new_rating_convenient);
+  });
+
   /**
    * Gotta test the test code ;)
    */

@@ -5,6 +5,12 @@ var METHODS = [
   'function'    // Something magical I'm inventing
 ];
 
+var OUTCOMES = {
+  'won': 1,
+  'lost': 0,
+  'tied': 0.5
+};
+
 // http://en.wikipedia.org/wiki/Elo_rating_system#Performance_rating
 var PERFORMANCE_CONSTANT = 400;
 
@@ -78,6 +84,24 @@ ELO.prototype.newRating = function(expected, score, previous) {
   }
 
   return rating;
+};
+
+ELO.prototype.newRatingIfWon = function(score, opponent_score) {
+  var odds = this.expectedScore(score, opponent_score);
+
+  return this.newRating(odds, OUTCOMES.won, score);
+};
+
+ELO.prototype.newRatingIfLost = function(score, opponent_score) {
+  var odds = this.expectedScore(score, opponent_score);
+
+  return this.newRating(odds, OUTCOMES.lost, score);
+};
+
+ELO.prototype.newRatingIfTied = function(score, opponent_score) {
+  var odds = this.expectedScore(score, opponent_score);
+
+  return this.newRating(odds, OUTCOMES.tied, score);
 };
 
 module.exports = ELO;

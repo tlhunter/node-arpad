@@ -13,17 +13,18 @@ npm install arpad
 ## Simple Usage
 
 ```js
-var Elo = require('./index.js');
+var Elo = require('arpad');
 
 var elo = new Elo(32);
 
 var alice = 1600;
 var bob = 1300;
 
-var odds_of_alice_winning = elo.expectedScore(alice, bob);
-alice = elo.newRating(odds_of_alice_winning, 1, alice);
+alice = elo.newRatingIfWon(alice, bob);
+console.log("Alice's new score if she won:", alice); // 1605
 
-console.log("Alice's new score:", alice);
+bob = elo.newRatingIfWon(bob, alice);
+console.log("Bob's new score if he won:", bob); // 1327
 ```
 
 ## Running Tests
