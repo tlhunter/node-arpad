@@ -34,7 +34,7 @@ console.log("Bob's new rating if he won:", new_bob); // 1327
 This is a more complex example, making use of K-factor tables and score values:
 
 ```js
-var Elo = require('./index.js');
+var Elo = require('arpad');
 
 var uscf = {
   default: 32,
