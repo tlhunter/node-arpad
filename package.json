@@ -1,14 +1,16 @@
 {
   "name": "arpad",
-  "version": "0.0.2",
-  "description": "ELO Rating System",
+  "version": "0.1.0",
+  "description": "An implementation of the ELO Rating System",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
     "elo",
+    "arpad",
     "rating",
+    "scoring",
     "matchmaking",
     "chess",
     "pvp"

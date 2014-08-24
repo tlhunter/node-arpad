@@ -1,8 +1,7 @@
 # Arpad: ELO Rating System for Node.js
 
 This is an implementation of [ELO](http://en.wikipedia.org/wiki/Elo_rating_system) for Node.js (ELO is named after Arpad Elo, hence the package name).
-
-There seems to be just one other implementation of ELO for Node.js, but it appears to be overly simple and unmaintained.
+This module is heavily tested and has many features used in real-world ELO situations.
 
 ## Installation
 
