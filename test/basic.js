@@ -1,3 +1,5 @@
+'use strict';
+
 var assert = require('assert');
 var Elo = require('../index.js');
 
@@ -145,6 +147,26 @@ describe('Basic Usage', function() {
     var alice_new_rating_convenient = elo.newRatingIfWon(alice_rating, bob_rating);
 
     assert.equal(alice_new_rating, alice_new_rating_convenient);
+  });
+
+  it("should do valid K-factor lookups with no numeric K-Factor provided", function() {
+    var elo = new Elo();
+
+    assert.equal(elo.getKFactor(), 32);
+    assert.equal(elo.getKFactor(-Infinity), 32);
+    assert.equal(elo.getKFactor(Infinity), 32);
+    assert.equal(elo.getKFactor(0), 32);
+    assert.equal(elo.getKFactor(1), 32);
+  });
+
+  it("should do valid K-factor lookups with a numeric K-Factor provided", function() {
+    var elo = new Elo(42);
+
+    assert.equal(elo.getKFactor(), 42);
+    assert.equal(elo.getKFactor(-Infinity), 42);
+    assert.equal(elo.getKFactor(Infinity), 42);
+    assert.equal(elo.getKFactor(0), 42);
+    assert.equal(elo.getKFactor(1), 42);
   });
 
   /**
