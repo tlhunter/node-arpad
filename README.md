@@ -12,19 +12,50 @@ npm install arpad
 
 ## Simple Usage
 
+This is a fairly simple example showing the most common usage for Arpad:
+
 ```js
 var Elo = require('arpad');
 
-var elo = new Elo(32);
+var elo = new Elo();
 
 var alice = 1600;
 var bob = 1300;
 
-alice = elo.newRatingIfWon(alice, bob);
-console.log("Alice's new score if she won:", alice); // 1605
+var new_alice = elo.newRatingIfWon(alice, bob);
+console.log("Alice's new rating if she won:", new_alice); // 1605
 
-bob = elo.newRatingIfWon(bob, alice);
-console.log("Bob's new score if he won:", bob); // 1327
+var new_bob = elo.newRatingIfWon(bob, alice);
+console.log("Bob's new rating if he won:", new_bob); // 1327
+```
+
+## Complex Usage
+
+This is a more complex example, making use of K-factor tables and score values:
+
+```js
+var Elo = require('./index.js');
+
+var uscf = {
+  default: 32,
+  2100: 24,
+  2400: 16
+};
+
+var elo = new Elo(uscf, 100);
+
+var alice = 2090;
+var bob = 2700;
+
+var odds_alice_wins = elo.expectedScore(alice, bob);
+console.log("The odds of Alice winning are about:", odds_alice_wins); // ~2.9%
+alice = elo.newRating(odds_alice_wins, 1.0, alice);
+console.log("Alice's new rating after she won:", alice); // 2121
+
+odds_alice_wins = elo.expectedScore(alice, bob);
+console.log("The odds of Alice winning again are about:", odds_alice_wins); // ~3.4%
+alice = elo.newRating(odds_alice_wins, 1.0, alice);
+console.log("Alice's new rating if she won again:", alice); // 2144
 ```
 
 ## Running Tests
