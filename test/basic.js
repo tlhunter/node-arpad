@@ -147,6 +147,18 @@ describe('Basic Usage', function() {
     var alice_new_rating_convenient = elo.newRatingIfWon(alice_rating, bob_rating);
 
     assert.equal(alice_new_rating, alice_new_rating_convenient);
+
+    expected_alice_score = elo.expectedScore(alice_rating, bob_rating);
+    alice_new_rating = elo.newRating(expected_alice_score, 0, alice_rating);
+    alice_new_rating_convenient = elo.newRatingIfLost(alice_rating, bob_rating);
+
+    assert.equal(alice_new_rating, alice_new_rating_convenient);
+
+    expected_alice_score = elo.expectedScore(alice_rating, bob_rating);
+    alice_new_rating = elo.newRating(expected_alice_score, 0.5, alice_rating);
+    alice_new_rating_convenient = elo.newRatingIfTied(alice_rating, bob_rating);
+
+    assert.equal(alice_new_rating, alice_new_rating_convenient);
   });
 
   it("should do valid K-factor lookups with no numeric K-Factor provided", function() {

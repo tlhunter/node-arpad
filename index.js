@@ -88,12 +88,10 @@ ELO.prototype.getMax = function() {
  * @return {Object} The current object for chaining purposes
  */
 ELO.prototype.setKFactor = function(k_factor) {
+  this.k_factor = k_factor;
+
   if (!k_factor) {
     this.k_factor = 32;
-  } else if (parseInt(k_factor, 10)) {
-    this.k_factor = k_factor;
-  } else if (typeof(k_factor) === 'object') {
-    this.k_factor = k_factor;
   }
 
   return this;
