@@ -2,7 +2,6 @@
   "curly": true,
   "trailing": true,
   "undef": true,
-  "globalstrict": true,
   "node": true,
   "devel": true,
   "globalstrict": true,

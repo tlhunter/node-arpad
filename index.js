@@ -16,9 +16,9 @@ var PERF = 400;
 /**
  * Instantiates a new ELO instance
  *
- * @param {Integer|Object} k_factor The maximum rating change, defaults to 32
- * @param {Integer} min The minimum value a calculated rating can be
- * @param {Integer} max Integer The maximum value a calculated rating can be
+ * @param {Number|Object} k_factor The maximum rating change, defaults to 32
+ * @param {Number} min The minimum value a calculated rating can be
+ * @param {Number} max Integer The maximum value a calculated rating can be
  */
 var ELO = function(k_factor, min, max) {
   this.setKFactor(k_factor);
