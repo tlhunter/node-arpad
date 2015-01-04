@@ -72,7 +72,7 @@ ELO.prototype.getMin = function() {
 /**
  * Returns the maximum acceptable rating value
  *
- * @return {Number} The minimum rating value, e.g. 2700
+ * @return {Number} The maximum rating value, e.g. 2700
  */
 ELO.prototype.getMax = function() {
   return this.maximum;
