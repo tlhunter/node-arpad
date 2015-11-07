@@ -15,17 +15,17 @@
     "chess",
     "pvp"
   ],
-  "author": "Thomas Hunter II",
+  "author": "Thomas Hunter II <me@thomashunter.name>",
   "license": "MIT",
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tlhunter/node-arpad.git"
+    "url": "https://github.com/PhobosRising/node-arpad.git"
   },
   "bugs": {
-    "url": "https://github.com/tlhunter/node-arpad/issues"
+    "url": "https://github.com/PhobosRising/node-arpad/issues"
   },
-  "homepage": "https://github.com/tlhunter/node-arpad"
+  "homepage": "https://github.com/PhobosRising/node-arpad"
 }
