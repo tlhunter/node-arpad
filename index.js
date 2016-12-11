@@ -11,7 +11,7 @@ var OUTCOMES = {
  *
  * @link http://en.wikipedia.org/wiki/Elo_rating_system#Performance_rating
  */
-var PERF = 400;
+var PERF = 500;
 
 /**
  * Instantiates a new ELO instance
