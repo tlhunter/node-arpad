@@ -43,7 +43,10 @@ var uscf = {
   2400: 16
 };
 
-var elo = new Elo(uscf, 100);
+var min_score = 100;
+var max_score = 10000;
+
+var elo = new Elo(uscf, min_score, max_score);
 
 var alice = 2090;
 var bob = 2700;
