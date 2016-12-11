@@ -59,17 +59,12 @@ console.log("Alice's new rating if she won again:", alice); // 2144
 
 ## Running Tests
 
-First install mocha
-
-```
-npm install -g mocha
-```
-
-Then run either of the following from the root of the repository
+If you'd like to contribute be sure to run `npm install` to get the required packages and then make changes.
+Afterwards simply run the tests.
+If everything passes your should be Pull Request ready.
 
 ```
 npm test
-mocha
 ```
 
 ## License
