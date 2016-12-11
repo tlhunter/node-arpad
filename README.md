@@ -1,5 +1,7 @@
 # Arpad: ELO Rating System for Node.js
 
+![Build Status](https://travis-ci.org/PhobosRising/node-arpad.svg?branch=master)
+
 This is an implementation of [ELO](http://en.wikipedia.org/wiki/Elo_rating_system) for Node.js (ELO is named after Arpad Elo, hence the package name).
 This module is heavily tested and has many features used in real-world ELO situations.
 
