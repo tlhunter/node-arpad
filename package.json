@@ -4,7 +4,7 @@
   "description": "An implementation of the ELO Rating System",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jshint ./index.js ./test/tests.js && ./test/tests.js"
   },
   "keywords": [
     "elo",
@@ -27,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/PhobosRising/node-arpad/issues"
   },
-  "homepage": "https://github.com/PhobosRising/node-arpad"
+  "homepage": "https://github.com/PhobosRising/node-arpad",
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "tape": "^4.6.3"
+  }
 }
