@@ -1,6 +1,6 @@
 {
   "name": "arpad",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An implementation of the ELO Rating System",
   "main": "index.js",
   "scripts": {
