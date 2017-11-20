@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PhobosRising/node-arpad.git"
+    "url": "https://github.com/tlhunter/node-arpad.git"
   },
   "bugs": {
-    "url": "https://github.com/PhobosRising/node-arpad/issues"
+    "url": "https://github.com/tlhunter/node-arpad/issues"
   },
-  "homepage": "https://github.com/PhobosRising/node-arpad",
+  "homepage": "https://github.com/tlhunter/node-arpad",
   "devDependencies": {
     "jshint": "^2.9.4",
     "tape": "^4.6.3"
