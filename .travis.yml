@@ -1,5 +1,9 @@
 language:
-  - javascript
+  - node_js
+node_js:
+  - 9
+  - 10
+  - 11
 install:
   - npm install
 script:
