@@ -66,7 +66,7 @@ console.log("Alice's new rating if she won again:", alice); // 2144
 
 If you'd like to contribute be sure to run `npm install` to get the required packages and then make changes.
 Afterwards simply run the tests.
-If everything passes your should be Pull Request ready.
+If everything passes your Pull Request should be ready.
 
 ```
 npm test
