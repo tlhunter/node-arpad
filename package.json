@@ -4,7 +4,7 @@
   "description": "An implementation of the ELO Rating System",
   "main": "index.js",
   "scripts": {
-    "test": "jshint ./index.js ./test/tests.js && ./test/tests.js"
+    "test": "node ./test/tests.js"
   },
   "keywords": [
     "elo",
@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/tlhunter/node-arpad",
   "devDependencies": {
-    "jshint": "^2.9.4",
     "tape": "^4.6.3"
   }
 }
