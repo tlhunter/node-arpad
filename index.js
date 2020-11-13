@@ -1,6 +1,6 @@
 'use strict';
 
-var OUTCOMES = {
+const OUTCOMES = {
   'lost': 0,
   'tied': 0.5,
   'won': 1
@@ -11,7 +11,7 @@ var OUTCOMES = {
  *
  * @link http://en.wikipedia.org/wiki/Elo_rating_system#Performance_rating
  */
-var PERF = 400;
+const PERF = 400;
 
 /**
  * Instantiates a new ELO instance
@@ -20,7 +20,7 @@ var PERF = 400;
  * @param {Number} min The minimum value a calculated rating can be
  * @param {Number} max Integer The maximum value a calculated rating can be
  */
-var ELO = function(k_factor, min, max) {
+const ELO = function(k_factor, min, max) {
   this.setKFactor(k_factor);
 
   this.minimum = typeof min !== 'undefined' ? min : -Infinity;
@@ -34,8 +34,7 @@ var ELO = function(k_factor, min, max) {
  * @return {Number} The determined K-factor, e.g. 32
  */
 ELO.prototype.getKFactor = function(rating) {
-  var k_factor = null;
-  var self = this;
+  let k_factor = null;
 
   if (!isNaN(this.k_factor)) {
     return this.k_factor;
@@ -49,8 +48,8 @@ ELO.prototype.getKFactor = function(rating) {
     k_factor = this.k_factor.default;
   }
 
-  Object.keys(this.k_factor).forEach(function(minimum_rating) {
-    var current_k_factor = self.k_factor[minimum_rating];
+  Object.keys(this.k_factor).forEach((minimum_rating) => {
+    let current_k_factor = this.k_factor[minimum_rating];
 
     if (minimum_rating <= rating) {
       k_factor = current_k_factor;
@@ -131,7 +130,7 @@ ELO.prototype.setMax = function(maximum) {
  * @link http://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
  */
 ELO.prototype.expectedScore = function(rating, opponent_rating) {
-  var difference = opponent_rating - rating;
+  const difference = opponent_rating - rating;
 
   return 1 / (1 + Math.pow(10, difference/PERF));
 };
@@ -159,8 +158,8 @@ ELO.prototype.bothExpectedScores = function(player_1_rating, player_2_rating) {
  * @return {Number} The new rating of the player, e.g. 1256
  */
 ELO.prototype.newRating = function(expected_score, actual_score, previous_rating) {
-  var difference = actual_score - expected_score;
-  var rating = Math.round(previous_rating + this.getKFactor(previous_rating) * difference);
+  const difference = actual_score - expected_score;
+  let rating = Math.round(previous_rating + this.getKFactor(previous_rating) * difference);
 
   if (rating < this.minimum) {
     rating = this.minimum;
@@ -181,7 +180,7 @@ ELO.prototype.newRating = function(expected_score, actual_score, previous_rating
  * @return {Number} The new rating of the player, e.g. 1300
  */
 ELO.prototype.newRatingIfWon = function(rating, opponent_rating) {
-  var odds = this.expectedScore(rating, opponent_rating);
+  const odds = this.expectedScore(rating, opponent_rating);
 
   return this.newRating(odds, OUTCOMES.won, rating);
 };
@@ -196,7 +195,7 @@ ELO.prototype.newRatingIfWon = function(rating, opponent_rating) {
  * @return {Number} The new rating of the player, e.g. 1180
  */
 ELO.prototype.newRatingIfLost = function(rating, opponent_rating) {
-  var odds = this.expectedScore(rating, opponent_rating);
+  const odds = this.expectedScore(rating, opponent_rating);
 
   return this.newRating(odds, OUTCOMES.lost, rating);
 };
@@ -211,7 +210,7 @@ ELO.prototype.newRatingIfLost = function(rating, opponent_rating) {
  * @return {Number} The new rating of the player, e.g. 1190
  */
 ELO.prototype.newRatingIfTied = function(rating, opponent_rating) {
-  var odds = this.expectedScore(rating, opponent_rating);
+  const odds = this.expectedScore(rating, opponent_rating);
 
   return this.newRating(odds, OUTCOMES.tied, rating);
 };
