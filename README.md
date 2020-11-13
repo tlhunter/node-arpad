@@ -1,14 +1,12 @@
 # Arpad: ELO Rating System for Node.js
 
-![Build Status](https://travis-ci.org/tlhunter/node-arpad.svg?branch=master)
-
 This is an implementation of [ELO](http://en.wikipedia.org/wiki/Elo_rating_system) for Node.js (ELO is named after Arpad Elo, hence the package name).
 This module is heavily tested and has many features used in real-world ELO situations.
 
 ## Installation
 
-```
-npm install arpad
+```bash
+$ npm install arpad
 ```
 
 ## Simple Usage
@@ -20,14 +18,14 @@ const Elo = require('arpad');
 
 const elo = new Elo();
 
-let alice = 1600;
-let bob = 1300;
+let alice = 1_600;
+let bob = 1_300;
 
 let new_alice = elo.newRatingIfWon(alice, bob);
-console.log("Alice's new rating if she won:", new_alice); // 1605
+console.log("Alice's new rating if she won:", new_alice); // 1,605
 
 let new_bob = elo.newRatingIfWon(bob, alice);
-console.log("Bob's new rating if he won:", new_bob); // 1327
+console.log("Bob's new rating if he won:", new_bob); // 1,327
 ```
 
 ## Complex Usage
@@ -44,20 +42,20 @@ const uscf = {
 };
 
 const min_score = 100;
-const max_score = 10000;
+const max_score = 10_000;
 
 const elo = new Elo(uscf, min_score, max_score);
 
-let alice = 2090;
-let bob = 2700;
+let alice = 2_090;
+let bob = 2_700;
 
 let odds_alice_wins = elo.expectedScore(alice, bob);
-console.log("The odds of Alice winning are about:", odds_alice_wins); // ~2.9%
+console.log("The odds of Alice winning are about:", odds_alice_wins); // 0.029
 alice = elo.newRating(odds_alice_wins, 1.0, alice);
 console.log("Alice's new rating after she won:", alice); // 2121
 
 odds_alice_wins = elo.expectedScore(alice, bob);
-console.log("The odds of Alice winning again are about:", odds_alice_wins); // ~3.4%
+console.log("The odds of Alice winning again are about:", odds_alice_wins); // 0.034
 alice = elo.newRating(odds_alice_wins, 1.0, alice);
 console.log("Alice's new rating if she won again:", alice); // 2144
 ```
@@ -68,8 +66,8 @@ If you'd like to contribute be sure to run `npm install` to get the required pac
 Afterwards simply run the tests.
 If everything passes your Pull Request should be ready.
 
-```
-npm test
+```bash
+$ npm test
 ```
 
 ## License
