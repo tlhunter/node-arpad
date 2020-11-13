@@ -6,7 +6,7 @@ const test = require('tape');
 
 const Elo = require('../index.js');
 
-test("sanity check", function(t) {
+test("sanity check", (t) => {
   t.ok(approximate(1, 1, 0));
   t.ok(approximate(1, 1));
   t.ok(approximate(9999.99999999, 9999.999999998));
@@ -17,7 +17,7 @@ test("sanity check", function(t) {
   t.end();
 });
 
-test("should have expected defaults", function(t) {
+test("should have expected defaults", (t) => {
   let myElo = new Elo();
 
   t.equal(myElo.getKFactor(), 32);
@@ -26,7 +26,7 @@ test("should have expected defaults", function(t) {
   t.end();
 });
 
-test("should allow passing in defaults via the constructor", function(t) {
+test("should allow passing in defaults via the constructor", (t) => {
   let fide = new Elo(20, 2251, 2825);
 
   t.equal(fide.getKFactor(), 20);
@@ -35,7 +35,7 @@ test("should allow passing in defaults via the constructor", function(t) {
   t.end();
 });
 
-test("should allow updating of parameters after instantiation", function(t) {
+test("should allow updating of parameters after instantiation", (t) => {
   let uscf = new Elo(31, 0, Infinity);
 
   t.equal(uscf.getKFactor(), 31);
@@ -50,7 +50,7 @@ test("should allow updating of parameters after instantiation", function(t) {
   t.end();
 });
 
-test("prevents scores leaving boundaries", function(t) {
+test("prevents scores leaving boundaries", (t) => {
   let elo = new Elo(32, 100, 2800);
 
   let alice = 2000;
@@ -71,7 +71,7 @@ test("prevents scores leaving boundaries", function(t) {
   t.end();
 });
 
-test("should determine the probability that someone will win or lose", function(t) {
+test("should determine the probability that someone will win or lose", (t) => {
   let myElo = new Elo(32, 0, 2500);
 
   let alice = 1400;
@@ -96,7 +96,7 @@ test("should determine the probability that someone will win or lose", function(
   t.end();
 });
 
-test("should calculate same scores as WikiPedia", function(t) {
+test("should calculate same scores as WikiPedia", (t) => {
   let elo = new Elo(32);
 
   let rating = 1613;
@@ -109,14 +109,14 @@ test("should calculate same scores as WikiPedia", function(t) {
     {rating: 1720, score: 0.351}
   ];
 
-  opponents.forEach(function(pair) {
+  opponents.forEach((pair) => {
     let actual = elo.expectedScore(rating, pair.rating);
     t.ok(approximate(actual, pair.score, 0.001));
   });
   t.end();
 });
 
-test("should calculate same ratings as WikiPedia", function(t) {
+test("should calculate same ratings as WikiPedia", (t) => {
   let elo = new Elo(32);
 
   let current_rating = 1613;
@@ -127,7 +127,7 @@ test("should calculate same ratings as WikiPedia", function(t) {
   t.end();
 });
 
-test("should do some end-to-end examples", function(t) {
+test("should do some end-to-end examples", (t) => {
   let elo = new Elo(24, 200, 3000);
 
   let alice_rating = 1600;
@@ -157,7 +157,7 @@ test("should do some end-to-end examples", function(t) {
   t.end();
 });
 
-test("should get same results when using convenience methods", function(t) {
+test("should get same results when using convenience methods", (t) => {
   let elo = new Elo(32);
 
   let alice_rating = 1275;
@@ -183,7 +183,7 @@ test("should get same results when using convenience methods", function(t) {
   t.end();
 });
 
-test("should do valid K-factor lookups with no numeric K-Factor provided", function(t) {
+test("should do valid K-factor lookups with no numeric K-Factor provided", (t) => {
   let elo = new Elo();
 
   t.equal(elo.getKFactor(), 32);
@@ -194,7 +194,7 @@ test("should do valid K-factor lookups with no numeric K-Factor provided", funct
   t.end();
 });
 
-test("should do valid K-factor lookups with a numeric K-Factor provided", function(t) {
+test("should do valid K-factor lookups with a numeric K-Factor provided", (t) => {
   let elo = new Elo(42);
 
   t.equal(elo.getKFactor(), 42);
@@ -205,7 +205,7 @@ test("should do valid K-factor lookups with a numeric K-Factor provided", functi
   t.end();
 });
 
-test("table: should perform valid K-factor lookups", function(t) {
+test("table: should perform valid K-factor lookups", (t) => {
   let uscf_table = {
     0: 32,
     2100: 24,
@@ -226,7 +226,7 @@ test("table: should perform valid K-factor lookups", function(t) {
   t.end();
 });
 
-test("table: should allow default for lower bounds lookups", function(t) {
+test("table: should allow default for lower bounds lookups", (t) => {
   let table = {
     0: 32,
     default: 48
@@ -243,7 +243,7 @@ test("table: should allow default for lower bounds lookups", function(t) {
   t.end();
 });
 
-test("table: should use proper table entries when calculating ratings", function(t) {
+test("table: should use proper table entries when calculating ratings", (t) => {
   let table = {
     default: 100,
     0: 50,
